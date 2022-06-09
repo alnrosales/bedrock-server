@@ -38,7 +38,7 @@ This Docker image will download the Bedrock Server app and set it up, along with
             }
         ]
         ```
-    3. Configure the `permissions.json` and add the operators. This file consists of a list of `permissions` and `xuid`s. The `permissions` can be `member`, `visitor` or `operator`. The `xuid` can be copied from the `whitelist.json` as soon as the user connected once. An example could look like:
+    3. Configure the `permissions.json` and add the operators. This file consists of a list of `permissions` and `xuid`s. The `permissions` can be `member`, `visitor` or `operator`. The `xuid` can be copied from the `allowlist.json` as soon as the user connected once. An example could look like:
         ```json
         [
             {
@@ -50,23 +50,14 @@ This Docker image will download the Bedrock Server app and set it up, along with
 4. Start the server:<br/>
     `docker start minecraft`
 
-### Updating
-1. Stop the server<br/>
+5. Stop the server<br/>
     ```
-    docker attach minecraft
-    stop
-    ```
-2. Re-create the server with the new image and the same settings (either `manually` or with `portainer` or Synologys `clean`).<br/>
-    NOTE: When updating from 1.7, you need to use the new installation guide and put your `worlds` and `config` files into the newly created volumes or use appropriate volume mappings when creating the container. You also need to rename `ops.json` to `permissions.json`.
-3. Start the server
-    `docker start minecraft`
-
 ## Commands
 There are various commands that can be used in the console. To access the console, you need to attach to the container with the following command:
 ```
 docker attach <container-id>
 ```
-To leave the console without exiting the container, use `Ctrl`+`p` + `Ctrl`+`q`.
+To leave the console without exiting the container, use `Ctrl`+`pq`.
 
 Here are the commands:
 
