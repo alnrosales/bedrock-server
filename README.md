@@ -17,7 +17,7 @@ This Docker image will download the Bedrock Server app and set it up, along with
         -v "bedrock-config:/bedrock-server/config"\
         -v "bedrock-worlds:/bedrock-server/worlds"\
         -p 19132:19132/udp\
-        alros/bedrock_server:1.19.1
+        alros/bedrock_server
     ```
 3. Prepare the config files
     1. Either start the server once and stop it
