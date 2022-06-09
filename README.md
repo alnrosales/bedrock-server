@@ -51,7 +51,7 @@ This Docker image will download the Bedrock Server app and set it up, along with
     `docker start minecraft`
 
 5. Stop the server<br/>
-    ```
+    `docker stop minecraft`
 ## Commands
 There are various commands that can be used in the console. To access the console, you need to attach to the container with the following command:
 ```
