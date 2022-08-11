@@ -11,7 +11,9 @@ This Docker image will download the Bedrock Server app and set it up, along with
         `docker volume create --name "bedrock-config"`
     2. Create a volume for the worlds:<br/>
         `docker volume create --name "bedrock-worlds"`
-2. Create the Docker container:
+2. Build the DockerFile:<br/>
+    `Docker build alros/bedrock-server:[version] .`
+3. Create the Docker container:
     ```bash
     docker create --name=minecraft -it\
         -v "bedrock-config:/bedrock-server/config"\
@@ -19,10 +21,10 @@ This Docker image will download the Bedrock Server app and set it up, along with
         -p 19132:19132/udp\
         alros/bedrock_server
     ```
-3. Prepare the config files
+4. Prepare the config files
     1. Either start the server once and stop it
     2. or copy the files from the original archives
-3. Configure the default files in the `config` volume:
+5. Configure the default files in the `config` volume:
     1. Configure the `server.properties` to your likings.
     2. Configure the `allowlist.json` in case you have set `allow-list=true` in the above step. Note: The `xuid` is optional and will automatically be added as soon as a matching player connects. Here's an example of a `allowlist.json` file:
         ```json
