@@ -12,7 +12,7 @@ This Docker image will download the Bedrock Server app and set it up, along with
     2. Create a volume for the worlds:<br/>
         `docker volume create --name "bedrock-worlds"`
 2. Build the DockerFile:<br/>
-    `Docker build -t alros/bedrock-server:[version] .`
+    `Docker build -t alros/bedrock_server:[version] .`
 3. Create the Docker container:
     ```bash
     docker create --name=minecraft -it\
