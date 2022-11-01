@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-ARG BDS_Version=1.19.31.01
+ARG BDS_Version=1.19.40.02
 
 ENV VERSION=$BDS_Version
 
