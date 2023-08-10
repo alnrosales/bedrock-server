@@ -1,19 +1,19 @@
-FROM ubuntu:18.04
+FROM ubuntu:23.10
 ARG BDS_Version=1.20.14.01
 
 ENV VERSION=$BDS_Version
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y unzip curl libcurl4 libssl1.0.0 && \
+    apt-get install -y unzip --no-install-recommends wget unzip apt-utils curl libssl-dev ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and extract the bedrock server
 RUN if [ "$VERSION" = "latest" ] ; then \
         LATEST_VERSION=$( \
-            curl -v --silent  https://www.minecraft.net/en-us/download/server/bedrock/ 2>&1 | \
+            curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -v https://www.minecraft.net/en-us/download/server/bedrock/ 2>&1 | \
             grep -o 'https://minecraft.azureedge.net/bin-linux/[^"]*' | \
-            sed 's#.*/bedrock-server-##' | sed 's/.zip//') && \
+            sed 's#.*/bedrock-server-##' | sed 's/.zip//' && \
         export VERSION=$LATEST_VERSION && \
         echo "Setting VERSION to $LATEST_VERSION" ; \
     else echo "Using VERSION of $VERSION"; \
