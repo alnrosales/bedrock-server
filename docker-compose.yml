@@ -1,0 +1,15 @@
+version: '3'
+services:
+  minecraft-bedrock-server:
+    image: alros/bedrock_server:latest
+    container_name: alros-bedrock-server
+    ports:
+      - 19132:19132/udp
+    volumes:
+      - ./bedrock-config:/config
+      - ./bedrock-worlds:/worlds
+    environment:
+      EULA: "TRUE"
+      GAMEMODE: survival
+      DIFFICULTY: easy
+    restart: unless-stopped
