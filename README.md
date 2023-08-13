@@ -21,11 +21,11 @@ This Docker image will download the Bedrock Server app and set it up, along with
     ```
 4. Create the Docker container:
     ```bash
-    docker create --name=minecraft -it\
-        -v "bedrock-config:/bedrock-server/config"\
-        -v "bedrock-worlds:/bedrock-server/worlds"\
-        -p 19132:19132/udp\
-        --restart unless-stopped\
+    docker create --name=minecraft -it \
+        -v "bedrock-config:/bedrock-server/config" \
+        -v "bedrock-worlds:/bedrock-server/worlds" \
+        -p 19132:19132/udp \
+        --restart unless-stopped \
         alros/bedrock_server:latest
     ```
 5. Start the server:<br/>
